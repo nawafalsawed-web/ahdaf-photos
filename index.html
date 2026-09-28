@@ -454,13 +454,13 @@ const PHOTOS=[
  {f:"staff-desks.jpg",      t:"مساحة المكاتب",                   c:"المكاتب"},
  {f:"glass-workspace.jpg",  t:"مساحة العمل الزجاجية",            c:"المكاتب"},
  {f:"meeting-room.jpg",     t:"قاعة الاجتماعات",                 c:"المكاتب"},
- {f:"reception.jpg",        t:"الاستقبال",                       c:"المرافق"},
+ {f:"rooftop-terrace.jpg",  t:"مجلس السطح وقت الغروب",           c:"المرافق"},
+ {f:"rooftop-majlis.jpg",   t:"جلسة السطح",                      c:"المرافق"},
  {f:"lounge-staff.jpg",     t:"اللاونج",                         c:"المرافق"},
- {f:"lounge-second.jpg",    t:"اللاونج، زاوية ثانية",            c:"المرافق"},
- {f:"rooftop-majlis.jpg",   t:"جلسة السطح",                      c:"المرافق"}
+ {f:"lounge-second.jpg",    t:"اللاونج، زاوية ثانية",            c:"المرافق"}
 ];
 const AR=n=>n.toLocaleString("ar-EG");
-const TALL=new Set(["meeting-room.jpg","lounge-staff.jpg","lounge-second.jpg"]);
+const TALL=new Set(["meeting-room.jpg","rooftop-terrace.jpg","lounge-staff.jpg","lounge-second.jpg"]);
 const g=id=>document.getElementById(id);
 let cover=0, filter="الكل", order=PHOTOS.map((_,i)=>i), pos=0;
 const ordered=()=>[cover,...PHOTOS.map((_,i)=>i).filter(i=>i!==cover)];
