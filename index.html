@@ -92,6 +92,13 @@ section{padding:30px 0}
   padding:15px 17px; box-shadow:var(--shadow); font-size:13.5px; color:var(--mute);
 }
 .note b{color:var(--ink); font-weight:600; display:block; font-size:15px; margin-bottom:3px}
+.note .btn{margin-top:13px; width:100%}
+.dl-state{font-size:12.5px; color:var(--mute); margin-top:9px; text-align:center; min-height:1.2em; font-variant-numeric:tabular-nums}
+.dl-alt{
+  margin-top:13px; font-size:12.5px; line-height:1.6; color:var(--mute);
+  background:var(--brand-wash); border-radius:11px; padding:11px 13px;
+}
+.dl-alt a{color:var(--brand); font-weight:600; overflow-wrap:anywhere}
 
 /* ---------- شبكة الصور ---------- */
 .grid{display:grid; grid-template-columns:1fr 1fr; gap:8px}
@@ -209,8 +216,10 @@ dialog{border:0; padding:0; max-width:none; max-height:none; width:100%; height:
 dialog::backdrop{background:rgba(8,5,14,.94)}
 .viewer{position:fixed; inset:0; display:flex; flex-direction:column; color:#fff}
 .v-bar{display:flex; align-items:center; gap:13px; padding:calc(12px + env(safe-area-inset-top)) 16px 12px; flex:none}
+.v-bar .v-meta{flex:1; min-width:0}
 .v-bar .t{font-size:14.5px; font-weight:500; line-height:1.35}
 .v-bar .n{font-size:12.5px; opacity:.7; font-variant-numeric:tabular-nums}
+a.iconbtn{text-decoration:none}
 .iconbtn{
   border:0; background:rgba(255,255,255,.12); color:#fff; width:42px; height:42px;
   border-radius:50%; cursor:pointer; display:grid; place-items:center; flex:none;
@@ -269,6 +278,15 @@ footer{padding:18px 0 34px; color:var(--mute); font-size:12px; text-align:center
   <div class="note">
     <b>أربع عشرة صورة من داخل المكتب</b>
     اضغط أي صورة تكبر، ومن داخل العارض تقدر تختار «اجعلها الغلاف» فتصير أول صورة تطلع بجوجل ماب.
+    <button class="btn btn-primary" id="dlAll">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 20h16"/></svg>
+      نزّل كل الصور
+    </button>
+    <div class="dl-state" id="dlState"></div>
+    <div class="dl-alt" id="dlAlt" hidden>
+      التنزيل ما يشتغل داخل هذا العارض. افتح النسخة المرفوعة عشان تنزّلها:<br>
+      <a href="https://nawafalsawed-web.github.io/ahdaf-photos/" target="_blank" rel="noopener">nawafalsawed-web.github.io/ahdaf-photos</a>
+    </div>
   </div>
 </section>
 
@@ -422,10 +440,13 @@ footer{padding:18px 0 34px; color:var(--mute); font-size:12px; text-align:center
       <button class="iconbtn" id="vClose" aria-label="إغلاق">
         <svg viewBox="0 0 24 24"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/></svg>
       </button>
-      <div>
+      <div class="v-meta">
         <div class="t" id="vTitle"></div>
         <div class="n" id="vNum"></div>
       </div>
+      <button class="iconbtn" id="vDl" aria-label="تنزيل هذي الصورة" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 20h16"/></svg>
+      </button>
     </div>
     <div class="v-stage"><img id="vImg" alt=""></div>
     <div class="v-nav">
@@ -443,6 +464,7 @@ footer{padding:18px 0 34px; color:var(--mute); font-size:12px; text-align:center
   </div>
 </dialog>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
 const PHOTOS=[
  {f:"team-workspace.jpg",   t:"الفريق في مساحة العمل",           c:"الفريق"},
@@ -521,6 +543,7 @@ function paintViewer(){
   g("vImg").src=p.f; g("vImg").alt=p.t;
   g("vTitle").textContent=p.t;
   g("vNum").textContent=AR(pos+1)+" من "+AR(order.length)+" ‏· "+p.c;
+  g("vDl").hidden=!dlReady;
   const isCover=order[pos]===cover;
   g("vCap").textContent=isCover?"هذي صورة الغلاف حالياً":"";
   g("vCover").disabled=isCover;
@@ -563,6 +586,59 @@ function paintBrowser(){
 g("openBrowser").onclick=()=>{paintBrowser(); browser.showModal();};
 g("closeBrowser").onclick=()=>browser.close();
 g("jumpMaps").onclick=()=>g("mapsSection").scrollIntoView({behavior:"smooth"});
+
+/* ---- تنزيل ----
+   جيت هب: رابط تنزيل عادي. عارض الأرتفاكت: يمر عبر صلاحية downloads. */
+const TOPLEVEL = window.top === window.self;
+let DL=null, dlReady=TOPLEVEL;
+g("dlAll").hidden=!dlReady; g("dlAlt").hidden=true;
+
+(async()=>{
+  try{ DL = window.claude ? await window.claude.use("downloads") : null; }catch(e){ DL=null; }
+  dlReady = !!DL || TOPLEVEL;
+  g("dlAll").hidden=!dlReady;
+  g("dlAlt").hidden=dlReady;
+  if(viewer.open) paintViewer();
+})();
+
+async function handOff(filename, blob){
+  if(DL){ await DL.save({filename, data:blob}); return; }
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  a.href=url; a.download=filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),60000);
+}
+const dlErr = e => e && e.code==="declined" ? "أُلغي التنزيل." : "ما ضبط التنزيل.";
+
+g("dlAll").onclick = async () => {
+  const btn=g("dlAll"), st=g("dlState");
+  btn.disabled=true; btn.style.opacity=".55";
+  try{
+    const zip=new JSZip();
+    for(let i=0;i<PHOTOS.length;i++){
+      st.textContent="جاري التجهيز… "+AR(i+1)+" من "+AR(PHOTOS.length);
+      const r=await fetch(PHOTOS[i].f);
+      if(!r.ok) throw new Error(PHOTOS[i].f);
+      zip.file(String(i+1).padStart(2,"0")+"-"+PHOTOS[i].t+".jpg", await r.blob());
+    }
+    st.textContent="جاري ضغط الملف…";
+    await handOff("صور-مكتب-أهداف.zip", await zip.generateAsync({type:"blob"}));
+    st.textContent="تم ‏· "+AR(PHOTOS.length)+" صورة";
+  }catch(e){ st.textContent=dlErr(e); }
+  finally{ btn.disabled=false; btn.style.opacity="1"; }
+};
+
+g("vDl").onclick = async () => {
+  const p=PHOTOS[order[pos]], btn=g("vDl");
+  btn.disabled=true; btn.style.opacity=".5";
+  try{
+    const r=await fetch(p.f);
+    if(!r.ok) throw new Error(p.f);
+    await handOff(p.t+".jpg", await r.blob());
+  }catch(e){ g("vCap").textContent=dlErr(e); }
+  finally{ btn.disabled=false; btn.style.opacity="1"; }
+};
 
 paintGrid(); paintMaps();
 </script>
