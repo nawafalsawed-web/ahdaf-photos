@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#4C0192">
+<meta name="description" content="الصور المعتمدة لمكتب أهداف، مع نموذج توضيحي لبطاقة جوجل ماب.">
+<style>html{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>صور مكتب أهداف</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#FBFAFC; --raise:#FFFFFF; --ink:#171122; --mute:#6B6280;
+  --brand:#4C0192; --brand-ink:#FFFFFF; --brand-wash:#F3ECFB;
+  --line:#E7E2F0; --line-soft:#F1EDF7;
+  --g-blue:#1a73e8; --g-grey:#5f6368; --g-line:#dadce0; --g-surface:#ffffff; --g-ink:#202124;
+  --shadow:0 1px 2px rgba(23,17,34,.05), 0 10px 30px rgba(23,17,34,.07);
+  --col:448px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#131019; --raise:#1C1727; --ink:#EFECF5; --mute:#9C94AF;
+    --brand:#A97CEC; --brand-ink:#140D22; --brand-wash:#261B3C;
+    --line:#2D2542; --line-soft:#241D34;
+    --g-blue:#8ab4f8; --g-grey:#9aa0a6; --g-line:#3c4043; --g-surface:#202124; --g-ink:#e8eaed;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 32px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131019; --raise:#1C1727; --ink:#EFECF5; --mute:#9C94AF;
+  --brand:#A97CEC; --brand-ink:#140D22; --brand-wash:#261B3C;
+  --line:#2D2542; --line-soft:#241D34;
+  --g-blue:#8ab4f8; --g-grey:#9aa0a6; --g-line:#3c4043; --g-surface:#202124; --g-ink:#e8eaed;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 32px rgba(0,0,0,.4);
+}
+
+*{box-sizing:border-box}
+body{
+  direction:rtl; background:var(--paper); color:var(--ink);
+  font-family:Roboto,"Noto Sans Arabic","Segoe UI",system-ui,sans-serif;
+  font-size:15.5px; line-height:1.7; -webkit-font-smoothing:antialiased;
+  padding-bottom:86px;
+}
+h1,h2,h3{font-family:inherit; font-weight:500; text-wrap:balance; margin:0; line-height:1.4}
+.col{max-width:var(--col); margin:0 auto; padding:0 18px}
+
+/* ---------- شريط علوي ---------- */
+.top{
+  position:sticky; top:0; z-index:5; background:var(--raise);
+  border-bottom:1px solid var(--line);
+}
+.top-in{display:flex; align-items:center; gap:13px; padding:13px 18px; max-width:var(--col); margin:0 auto}
+.mark{width:38px; height:38px; border-radius:11px; background:var(--brand); display:grid; place-items:center; flex:none}
+.mark svg{width:20px; height:20px}
+.top h1{font-size:18px; letter-spacing:-.005em}
+.top .sub{color:var(--mute); font-size:12px; line-height:1.4; margin-top:1px}
+
+/* ---------- أزرار ---------- */
+.btn{
+  font-family:inherit; font-size:15px; font-weight:600; cursor:pointer;
+  border-radius:13px; padding:14px 22px; border:1px solid transparent;
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  transition:filter .15s ease, transform .1s ease;
+}
+.btn:active{transform:scale(.985)}
+.btn-primary{background:var(--brand); color:var(--brand-ink)}
+.btn-ghost{background:var(--raise); color:var(--ink); border-color:var(--line)}
+.btn-ghost:active{background:var(--brand-wash)}
+.btn svg{width:18px; height:18px; flex:none}
+.full{width:100%}
+:focus-visible{outline:2.5px solid var(--brand); outline-offset:2px; border-radius:8px}
+
+/* ---------- شريط سفلي ثابت ---------- */
+.dock{
+  position:fixed; inset-inline:0; bottom:0; z-index:6;
+  background:color-mix(in srgb, var(--raise) 92%, transparent);
+  backdrop-filter:blur(14px); border-top:1px solid var(--line);
+  padding:11px 18px calc(11px + env(safe-area-inset-bottom));
+}
+.dock-in{max-width:var(--col); margin:0 auto; display:flex; gap:9px}
+.dock .btn{flex:1; padding:13px 14px; font-size:14.5px}
+
+/* ---------- أقسام ---------- */
+section{padding:30px 0}
+.eyebrow{font-size:10.5px; letter-spacing:.15em; color:var(--brand); font-weight:700; margin-bottom:6px}
+.shead h2{font-size:20px}
+.shead p{margin:6px 0 0; color:var(--mute); font-size:13.5px}
+.shead{margin-bottom:18px}
+
+.note{
+  background:var(--raise); border:1px solid var(--line); border-radius:15px;
+  padding:15px 17px; box-shadow:var(--shadow); font-size:13.5px; color:var(--mute);
+}
+.note b{color:var(--ink); font-weight:600; display:block; font-size:15px; margin-bottom:3px}
+
+/* ---------- شبكة الصور ---------- */
+.grid{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+.cell{
+  position:relative; border:0; padding:0; margin:0; cursor:pointer; overflow:hidden;
+  border-radius:12px; background:var(--line-soft); aspect-ratio:1/1; display:block;
+}
+.cell img{width:100%; height:100%; object-fit:cover; display:block}
+.cell figcaption{
+  position:absolute; inset-inline:0; bottom:0; padding:26px 11px 9px; font-size:11.5px;
+  color:#fff; background:linear-gradient(to top,rgba(10,6,18,.86),transparent);
+  text-align:start; pointer-events:none; line-height:1.4;
+}
+.cell.is-cover::after{
+  content:"الغلاف"; position:absolute; top:8px; inset-inline-start:8px;
+  background:var(--brand); color:var(--brand-ink); font-size:10px; font-weight:700;
+  padding:4px 9px; border-radius:7px;
+}
+.tall{grid-row:span 2; aspect-ratio:1/2.06}
+
+/* ---------- محاكاة جوجل ---------- */
+.pane-note{
+  font-size:12px; color:var(--g-grey); background:var(--line-soft);
+  border-radius:9px; padding:9px 12px; margin:12px 0 2px; line-height:1.55;
+}
+.gmaps{
+  font-family:inherit; direction:rtl;
+  background:var(--g-surface); color:var(--g-ink);
+  border:1px solid var(--g-line); border-radius:22px; overflow:hidden; box-shadow:var(--shadow);
+}
+/* شريط يوضّح أن البطاقة محاكاة */
+.demo-strip{
+  display:flex; align-items:center; gap:9px; padding:11px 15px;
+  background:#5B2E9A; color:#fff; font-size:12.5px; line-height:1.5; font-weight:500;
+}
+:root[data-theme="dark"] .demo-strip{background:#3A1C66}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .demo-strip{background:#3A1C66}}
+.demo-strip svg{width:17px; height:17px; fill:#fff; flex:none}
+.demo-strip b{font-weight:700}
+.demo-tag{
+  position:absolute; top:8px; inset-inline-end:8px; z-index:1;
+  background:rgba(12,7,22,.72); color:#fff; font-size:10px; font-weight:700;
+  letter-spacing:.05em; padding:4px 9px; border-radius:6px; pointer-events:none;
+}
+.g-hero{display:grid; grid-template-columns:2fr 1fr; gap:2px; background:var(--g-line); position:relative}
+.g-hero button{border:0; padding:0; cursor:pointer; background:var(--g-line); overflow:hidden; display:block}
+.g-hero img{width:100%; height:100%; object-fit:cover; display:block}
+.g-hero .big{aspect-ratio:1/1}
+.g-hero .side{display:grid; grid-template-rows:1fr 1fr; gap:2px}
+.g-hero .side button{position:relative}
+.g-more{
+  position:absolute; inset:0; background:rgba(0,0,0,.55); color:#fff;
+  display:grid; place-items:center; font-size:15px; font-weight:500;
+}
+.g-body{padding:15px 16px 4px}
+.g-name{font-size:22px; font-weight:400; line-height:1.3; margin:0}
+.g-rate{display:flex; align-items:center; gap:6px; margin-top:5px; font-size:13px; color:var(--g-grey)}
+.g-rate b{color:var(--g-ink); font-weight:400; font-variant-numeric:tabular-nums}
+.stars{display:inline-flex; gap:1px}
+.stars svg{width:14px; height:14px; fill:#e7711b}
+.g-cat{font-size:13px; color:var(--g-grey); margin-top:3px}
+
+.g-actions{display:flex; gap:12px; padding:15px 16px 4px; overflow-x:auto; scrollbar-width:none}
+.g-actions::-webkit-scrollbar{display:none}
+.g-act{
+  border:0; background:transparent; cursor:pointer; font-family:inherit;
+  display:flex; flex-direction:column; align-items:center; gap:6px; min-width:58px;
+  font-size:11.5px; color:var(--g-blue); flex:none;
+}
+.g-act i{width:40px; height:40px; border-radius:50%; background:var(--g-blue); display:grid; place-items:center}
+.g-act.alt i{background:transparent; border:1px solid var(--g-line)}
+.g-act i svg{width:19px; height:19px; fill:#fff}
+.g-act.alt i svg{fill:var(--g-blue)}
+
+.g-tabs{display:flex; border-bottom:1px solid var(--g-line); margin-top:13px; overflow-x:auto; scrollbar-width:none}
+.g-tabs::-webkit-scrollbar{display:none}
+.g-tabs button{
+  font-family:inherit; font-size:13.5px; font-weight:500; border:0; background:transparent;
+  color:var(--g-grey); padding:14px 17px; cursor:pointer; border-bottom:3px solid transparent;
+  white-space:nowrap; flex:none;
+}
+.g-tabs button[aria-selected="true"]{color:var(--g-blue); border-bottom-color:var(--g-blue)}
+
+.g-pane{padding:4px 16px 16px}
+.g-row{display:flex; gap:14px; align-items:flex-start; padding:14px 0; border-bottom:1px solid var(--g-line); font-size:13.5px}
+.g-row:last-child{border-bottom:0}
+.g-row>svg{width:20px; height:20px; fill:var(--g-grey); flex:none; margin-top:2px}
+.g-row .val{line-height:1.6}
+.g-row .val small{display:block; color:var(--g-grey); font-size:12px}
+.open{color:#188038; font-weight:500}
+
+.chips{display:flex; gap:7px; padding:13px 0 11px; overflow-x:auto; scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{
+  font-family:inherit; font-size:12.5px; border:1px solid var(--g-line); background:transparent;
+  color:var(--g-ink); border-radius:999px; padding:7px 15px; cursor:pointer; white-space:nowrap; flex:none;
+}
+.chip[aria-pressed="true"]{background:var(--g-blue); border-color:var(--g-blue); color:#fff}
+.g-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:3px}
+.g-grid button{border:0; padding:0; cursor:pointer; background:var(--g-line); aspect-ratio:1/1; overflow:hidden; position:relative}
+.g-grid img{width:100%; height:100%; object-fit:cover; display:block}
+.g-grid .pin{position:absolute; top:5px; inset-inline-start:5px; width:15px; height:15px; fill:#fff; filter:drop-shadow(0 1px 2px rgba(0,0,0,.7))}
+
+.g-rev{display:flex; gap:12px; padding:15px 0; border-bottom:1px solid var(--g-line)}
+.g-rev:last-child{border-bottom:0}
+.av{width:34px; height:34px; border-radius:50%; flex:none; display:grid; place-items:center; color:#fff; font-size:14px; font-weight:500}
+.g-rev p{margin:5px 0 0; font-size:13.5px; line-height:1.65}
+.g-rev .who{font-size:13.5px; font-weight:500}
+.g-rev .when{font-size:12px; color:var(--g-grey)}
+
+.hint{color:var(--mute); font-size:12px; margin-top:14px; text-align:center; line-height:1.6}
+
+/* ---------- العارضات ---------- */
+dialog{border:0; padding:0; max-width:none; max-height:none; width:100%; height:100%; background:transparent}
+dialog::backdrop{background:rgba(8,5,14,.94)}
+.viewer{position:fixed; inset:0; display:flex; flex-direction:column; color:#fff}
+.v-bar{display:flex; align-items:center; gap:13px; padding:calc(12px + env(safe-area-inset-top)) 16px 12px; flex:none}
+.v-bar .t{font-size:14.5px; font-weight:500; line-height:1.35}
+.v-bar .n{font-size:12.5px; opacity:.7; font-variant-numeric:tabular-nums}
+.iconbtn{
+  border:0; background:rgba(255,255,255,.12); color:#fff; width:42px; height:42px;
+  border-radius:50%; cursor:pointer; display:grid; place-items:center; flex:none;
+}
+.iconbtn:active{background:rgba(255,255,255,.26)}
+.iconbtn svg{width:20px; height:20px; fill:#fff}
+.v-stage{flex:1; display:flex; align-items:center; justify-content:center; padding:0 12px; min-height:0}
+.v-stage img{max-width:100%; max-height:100%; object-fit:contain; border-radius:8px}
+.v-nav{display:flex; gap:14px; justify-content:center; padding:14px 0 0}
+.v-foot{flex:none; padding:10px 18px calc(20px + env(safe-area-inset-bottom)); display:grid; gap:10px; justify-items:center}
+.v-foot .cap{font-size:12.5px; opacity:.8; min-height:1.2em}
+.v-foot .btn{width:100%; max-width:var(--col)}
+
+.browser{position:fixed; inset:0; overflow-y:auto; background:var(--paper); color:var(--ink)}
+.b-bar{
+  position:sticky; top:0; z-index:2; background:var(--raise); border-bottom:1px solid var(--line);
+  display:flex; align-items:center; gap:12px; padding:calc(13px + env(safe-area-inset-top)) 18px 13px;
+}
+.b-bar h3{font-size:17px; flex:1}
+.b-bar .n{font-size:12px; color:var(--mute); font-variant-numeric:tabular-nums}
+.b-bar .iconbtn{background:var(--line-soft); width:38px; height:38px}
+.b-bar .iconbtn svg{fill:var(--ink); width:18px; height:18px}
+.b-body{padding:16px 18px calc(28px + env(safe-area-inset-bottom)); max-width:var(--col); margin:0 auto}
+.b-list{display:grid; gap:16px}
+.b-card{border:0; padding:0; background:transparent; cursor:pointer; text-align:start; font-family:inherit; width:100%}
+.b-card .ph{aspect-ratio:4/3; border-radius:15px; overflow:hidden; background:var(--line-soft); border:1px solid var(--line); position:relative}
+.b-card img{width:100%; height:100%; object-fit:cover; display:block}
+.b-card .badge{
+  position:absolute; top:9px; inset-inline-start:9px; background:var(--brand); color:var(--brand-ink);
+  font-size:10px; font-weight:700; padding:4px 10px; border-radius:7px;
+}
+.b-card .cap{font-size:14.5px; margin-top:9px; font-weight:600}
+.b-card .tag{font-size:12px; color:var(--mute)}
+
+footer{padding:18px 0 34px; color:var(--mute); font-size:12px; text-align:center}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="top-in">
+    <div class="mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M3 20 L9 4 L12 12 L15 4 L21 20 L16.5 20 L14 13 L12 18 L10 13 L7.5 20 Z" fill="#fff"/></svg>
+    </div>
+    <div>
+      <h1>صور مكتب أهداف</h1>
+      <div class="sub">المجموعة المعتمدة للموقع وجوجل ماب</div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="col">
+  <div class="note">
+    <b>ثلاث عشرة صورة، كلها فيها موظفون</b>
+    اضغط أي صورة تكبر، ومن داخل العارض تقدر تختار «اجعلها الغلاف» فتصير أول صورة تطلع بجوجل ماب.
+  </div>
+</section>
+
+<section class="col" id="gallerySection">
+  <div class="shead">
+    <div class="eyebrow">المجموعة</div>
+    <h2>الصور المعتمدة</h2>
+    <p>مرتّبة بحسب ما يشوفه الزائر أول: الفريق، ثم المكاتب، ثم المرافق.</p>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="col" id="mapsSection">
+  <div class="shead">
+    <div class="eyebrow">محاكاة</div>
+    <h2>كيف تبين بجوجل ماب</h2>
+    <p>بطاقة النشاط التجاري كما يشوفها الزائر من جواله. التبويبات والتصنيفات والعارض كلها تشتغل.</p>
+  </div>
+
+  <div class="gmaps" id="gmaps">
+    <div class="demo-strip">
+      <svg viewBox="0 0 24 24"><path d="M12 2 1 21h22L12 2Zm1 14h-2v2h2Zm0-6h-2v4h2Z"/></svg>
+      <span><b>نموذج توضيحي.</b> محاكاة لشكل البطاقة، مو ملف أهداف الفعلي على جوجل.</span>
+    </div>
+    <div class="g-hero">
+      <span class="demo-tag">نموذج توضيحي</span>
+      <button class="big" id="heroBig"><img id="heroBigImg" alt=""></button>
+      <div class="side">
+        <button id="heroS1"><img id="heroS1Img" alt=""></button>
+        <button id="heroS2"><img id="heroS2Img" alt=""><span class="g-more" id="heroMore"></span></button>
+      </div>
+    </div>
+
+    <div class="g-body">
+      <h3 class="g-name">أهداف</h3>
+      <div class="g-rate">
+        <b>٤٫٨</b>
+        <span class="stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="m12 17.3 6.2 3.7-1.6-7 5.4-4.7-7.1-.6L12 2 9.1 8.7 2 9.3l5.4 4.7-1.6 7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 17.3 6.2 3.7-1.6-7 5.4-4.7-7.1-.6L12 2 9.1 8.7 2 9.3l5.4 4.7-1.6 7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 17.3 6.2 3.7-1.6-7 5.4-4.7-7.1-.6L12 2 9.1 8.7 2 9.3l5.4 4.7-1.6 7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 17.3 6.2 3.7-1.6-7 5.4-4.7-7.1-.6L12 2 9.1 8.7 2 9.3l5.4 4.7-1.6 7z"/></svg>
+          <svg viewBox="0 0 24 24" opacity=".42"><path d="m12 17.3 6.2 3.7-1.6-7 5.4-4.7-7.1-.6L12 2 9.1 8.7 2 9.3l5.4 4.7-1.6 7z"/></svg>
+        </span>
+        <span>(٤٢ تقييماً)</span>
+      </div>
+      <div class="g-cat">وكالة تسويق ‏· الرياض</div>
+    </div>
+
+    <div class="g-actions">
+      <button class="g-act"><i><svg viewBox="0 0 24 24"><path d="M21.7 11.3 12.7 2.3a1 1 0 0 0-1.4 0l-9 9a1 1 0 0 0 0 1.4l9 9a1 1 0 0 0 1.4 0l9-9a1 1 0 0 0 0-1.4ZM14 14.5V12h-4v3H8v-4a1 1 0 0 1 1-1h5V7.5l3.5 3.5Z"/></svg></i>الاتجاهات</button>
+      <button class="g-act alt"><i><svg viewBox="0 0 24 24"><path d="M17 3H7a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2Z"/></svg></i>حفظ</button>
+      <button class="g-act alt"><i><svg viewBox="0 0 24 24"><path d="M20 15.5a12 12 0 0 1-3.8-.6 1 1 0 0 0-1 .24l-2 2a15 15 0 0 1-6.6-6.6l2-2a1 1 0 0 0 .25-1A12 12 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1 17 17 0 0 0 17 17 1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1Z"/></svg></i>اتصال</button>
+      <button class="g-act alt"><i><svg viewBox="0 0 24 24"><path d="M18 16.1a3 3 0 0 0-2 .8l-7.1-4.2a3 3 0 0 0 0-1.4L16 7.2a3 3 0 1 0-1-2.2l-7.1 4.1a3 3 0 1 0 0 5.8l7.1 4.2a3 3 0 1 0 3-3Z"/></svg></i>مشاركة</button>
+      <button class="g-act alt"><i><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 15h-2v-2h2Zm0-4h-2V7h2Z"/></svg></i>الموقع</button>
+    </div>
+
+    <div class="g-tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-tab="overview">نظرة عامة</button>
+      <button role="tab" aria-selected="false" data-tab="photos">الصور</button>
+      <button role="tab" aria-selected="false" data-tab="reviews">المراجعات</button>
+    </div>
+
+    <div class="g-pane" id="paneOverview">
+      <div class="g-row">
+        <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5Z"/></svg>
+        <div class="val">الرياض، المملكة العربية السعودية<small>العنوان التفصيلي يُعبّأ من لوحة النشاط التجاري</small></div>
+      </div>
+      <div class="g-row">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 10.6-4.1 2.4-.8-1.4 3.4-2V6h1.5Z"/></svg>
+        <div class="val"><span class="open">مفتوح الآن</span> ‏· يغلق ٥ م<small>الأحد إلى الخميس، ٩ ص – ٥ م</small></div>
+      </div>
+      <div class="g-row">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.9 6h-2.9a15 15 0 0 0-1.3-3.4A8 8 0 0 1 18.9 8ZM12 4.1A13 13 0 0 1 13.8 8h-3.6A13 13 0 0 1 12 4.1ZM4.3 14a8 8 0 0 1 0-4h3.3a17 17 0 0 0 0 4Zm.8 2h2.9a15 15 0 0 0 1.3 3.4A8 8 0 0 1 5.1 16Zm2.9-8H5.1a8 8 0 0 1 4.2-3.4A15 15 0 0 0 8 8Zm4 11.9A13 13 0 0 1 10.2 16h3.6A13 13 0 0 1 12 19.9Zm2.2-5.9H9.8a15 15 0 0 1 0-4h4.4a15 15 0 0 1 0 4Zm.5 5.4a15 15 0 0 0 1.3-3.4h2.9a8 8 0 0 1-4.2 3.4ZM16.4 14a17 17 0 0 0 0-4h3.3a8 8 0 0 1 0 4Z"/></svg>
+        <div class="val">ahdaf.co</div>
+      </div>
+      <div class="g-row">
+        <svg viewBox="0 0 24 24"><path d="M9 3 4 5v16l5-2 6 2 5-2V3l-5 2Zm0 2.2 6 2v13.6l-6-2Z"/></svg>
+        <div class="val">نربط الإبداع بالهدف<small>وصف النشاط كما يظهر للزائر</small></div>
+      </div>
+    </div>
+
+    <div class="g-pane" id="panePhotos" hidden>
+      <div class="chips" id="chips"></div>
+      <div class="g-grid" id="gGrid"></div>
+    </div>
+
+    <div class="g-pane" id="paneReviews" hidden>
+      <p class="pane-note">الأسماء والنصوص أدناه توضيحية لبيان شكل التبويب، ما هي مراجعات حقيقية.</p>
+      <div class="g-rev">
+        <div class="av" style="background:#8e44ad">ع</div>
+        <div>
+          <div class="who">عبدالله الشمري</div>
+          <div class="when">قبل أسبوعين</div>
+          <p>مكان مرتّب والاستقبال ممتاز. الفريق متعاون من أول زيارة.</p>
+        </div>
+      </div>
+      <div class="g-rev">
+        <div class="av" style="background:#0b8043">ن</div>
+        <div>
+          <div class="who">نورة العتيبي</div>
+          <div class="when">قبل شهر</div>
+          <p>اجتمعنا معهم بقاعة الاجتماعات، مكان مريح وتنظيم واضح.</p>
+        </div>
+      </div>
+      <div class="g-rev">
+        <div class="av" style="background:#c5221f">م</div>
+        <div>
+          <div class="who">محمد القحطاني</div>
+          <div class="when">قبل ٣ أشهر</div>
+          <p>تعاملت معهم بمشروع تسويقي، التزموا بالوقت والنتيجة طلعت زينة.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="hint">التقييمات والمراجعات وساعات العمل نصوص توضيحية للمحاكاة فقط، والصور وحدها هي الحقيقية من المجموعة.</p>
+</section>
+</main>
+
+<footer class="col">أهداف ‏· ١٣ صورة معتمدة، كلها تبيّن موظفين داخل المكتب.</footer>
+
+<nav class="dock">
+  <div class="dock-in">
+    <button class="btn btn-primary" id="openBrowser">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+      استعرض الصور
+    </button>
+    <button class="btn btn-ghost" id="jumpMaps" aria-label="انتقل لمحاكاة جوجل ماب">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      جوجل ماب
+    </button>
+  </div>
+</nav>
+
+<dialog id="browser">
+  <div class="browser">
+    <div class="b-bar">
+      <h3>كل الصور</h3>
+      <span class="n" id="brCount"></span>
+      <button class="iconbtn" id="closeBrowser" aria-label="إغلاق">
+        <svg viewBox="0 0 24 24"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/></svg>
+      </button>
+    </div>
+    <div class="b-body"><div class="b-list" id="bGrid"></div></div>
+  </div>
+</dialog>
+
+<dialog id="viewer">
+  <div class="viewer">
+    <div class="v-bar">
+      <button class="iconbtn" id="vClose" aria-label="إغلاق">
+        <svg viewBox="0 0 24 24"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/></svg>
+      </button>
+      <div>
+        <div class="t" id="vTitle"></div>
+        <div class="n" id="vNum"></div>
+      </div>
+    </div>
+    <div class="v-stage"><img id="vImg" alt=""></div>
+    <div class="v-nav">
+      <button class="iconbtn" id="vNext" aria-label="السابق">
+        <svg viewBox="0 0 24 24"><path d="M9.4 18.4 15.8 12 9.4 5.6 8 7l5 5-5 5z"/></svg>
+      </button>
+      <button class="iconbtn" id="vPrev" aria-label="التالي">
+        <svg viewBox="0 0 24 24"><path d="M14.6 5.6 8.2 12l6.4 6.4L16 17l-5-5 5-5z"/></svg>
+      </button>
+    </div>
+    <div class="v-foot">
+      <span class="cap" id="vCap"></span>
+      <button class="btn btn-primary" id="vCover">اجعلها الغلاف</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const PHOTOS=[
+ {f:"team-workspace.jpg",   t:"الفريق في مساحة العمل",           c:"الفريق"},
+ {f:"group-photo.jpg",      t:"صورة الفريق الجماعية",            c:"الفريق"},
+ {f:"signing-myneto.jpg",   t:"توقيع اتفاقية الشراكة مع myneto", c:"الفريق"},
+ {f:"team-meeting.jpg",     t:"اجتماع الفريق",                   c:"الفريق"},
+ {f:"hosting-guests.jpg",   t:"استقبال الضيوف",                  c:"الفريق"},
+ {f:"side-conversation.jpg",t:"حوار جانبي",                      c:"الفريق"},
+ {f:"staff-desks.jpg",      t:"موظفون على المكاتب",              c:"المكاتب"},
+ {f:"glass-workspace.jpg",  t:"مساحة العمل الزجاجية",            c:"المكاتب"},
+ {f:"meeting-room.jpg",     t:"قاعة الاجتماعات",                 c:"المكاتب"},
+ {f:"reception.jpg",        t:"الاستقبال",                       c:"المرافق"},
+ {f:"lounge-staff.jpg",     t:"اللاونج",                         c:"المرافق"},
+ {f:"lounge-second.jpg",    t:"اللاونج، زاوية ثانية",            c:"المرافق"},
+ {f:"rooftop-majlis.jpg",   t:"جلسة السطح",                      c:"المرافق"}
+];
+const AR=n=>n.toLocaleString("ar-EG");
+const TALL=new Set(["meeting-room.jpg","lounge-staff.jpg","lounge-second.jpg"]);
+const g=id=>document.getElementById(id);
+let cover=0, filter="الكل", order=PHOTOS.map((_,i)=>i), pos=0;
+const ordered=()=>[cover,...PHOTOS.map((_,i)=>i).filter(i=>i!==cover)];
+
+function paintGrid(){
+  const grid=g("grid"); grid.innerHTML="";
+  PHOTOS.forEach((p,i)=>{
+    const b=document.createElement("button");
+    b.className="cell"+(TALL.has(p.f)?" tall":"")+(i===cover?" is-cover":"");
+    b.innerHTML='<img src="'+p.f+'" alt="'+p.t+'" loading="lazy"><figcaption>'+p.t+'</figcaption>';
+    b.onclick=()=>openViewer(PHOTOS.map((_,k)=>k),i);
+    grid.appendChild(b);
+  });
+}
+
+function paintMaps(){
+  const o=ordered();
+  g("heroBigImg").src=PHOTOS[o[0]].f; g("heroBigImg").alt=PHOTOS[o[0]].t;
+  g("heroS1Img").src=PHOTOS[o[1]].f;  g("heroS1Img").alt=PHOTOS[o[1]].t;
+  g("heroS2Img").src=PHOTOS[o[2]].f;  g("heroS2Img").alt=PHOTOS[o[2]].t;
+  g("heroMore").textContent="+"+AR(PHOTOS.length-3);
+  g("heroBig").onclick=()=>openViewer(o,0);
+  g("heroS1").onclick=()=>openViewer(o,1);
+  g("heroS2").onclick=()=>{showTab("photos"); g("panePhotos").scrollIntoView({block:"nearest",behavior:"smooth"});};
+
+  const cats=["الكل"].concat([...new Set(PHOTOS.map(p=>p.c))]);
+  const chips=g("chips"); chips.innerHTML="";
+  cats.forEach(c=>{
+    const b=document.createElement("button");
+    b.className="chip"; b.textContent=c; b.setAttribute("aria-pressed",String(c===filter));
+    b.onclick=()=>{filter=c; paintMaps();};
+    chips.appendChild(b);
+  });
+
+  const list=ordered().filter(i=>filter==="الكل"||PHOTOS[i].c===filter);
+  const gg=g("gGrid"); gg.innerHTML="";
+  list.forEach((idx,k)=>{
+    const b=document.createElement("button");
+    const pin=idx===cover?'<svg class="pin" viewBox="0 0 24 24"><path d="M17 3H7a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2Z"/></svg>':"";
+    b.innerHTML='<img src="'+PHOTOS[idx].f+'" alt="'+PHOTOS[idx].t+'" loading="lazy">'+pin;
+    b.onclick=()=>openViewer(list,k);
+    gg.appendChild(b);
+  });
+}
+function showTab(name){
+  document.querySelectorAll(".g-tabs button").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.tab===name)));
+  g("paneOverview").hidden=name!=="overview";
+  g("panePhotos").hidden=name!=="photos";
+  g("paneReviews").hidden=name!=="reviews";
+}
+document.querySelectorAll(".g-tabs button").forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
+
+const viewer=g("viewer");
+function openViewer(list,start){ order=list; pos=start; paintViewer(); if(!viewer.open) viewer.showModal(); }
+function paintViewer(){
+  const p=PHOTOS[order[pos]];
+  g("vImg").src=p.f; g("vImg").alt=p.t;
+  g("vTitle").textContent=p.t;
+  g("vNum").textContent=AR(pos+1)+" من "+AR(order.length)+" ‏· "+p.c;
+  const isCover=order[pos]===cover;
+  g("vCap").textContent=isCover?"هذي صورة الغلاف حالياً":"";
+  g("vCover").disabled=isCover;
+  g("vCover").style.opacity=isCover?".45":"1";
+}
+const step=d=>{pos=(pos+d+order.length)%order.length; paintViewer();};
+g("vNext").onclick=()=>step(1);
+g("vPrev").onclick=()=>step(-1);
+g("vClose").onclick=()=>viewer.close();
+g("vCover").onclick=()=>{cover=order[pos]; paintGrid(); paintMaps(); paintViewer(); if(browser.open) paintBrowser();};
+document.addEventListener("keydown",e=>{
+  if(!viewer.open) return;
+  if(e.key==="ArrowRight") step(1);
+  if(e.key==="ArrowLeft") step(-1);
+});
+/* سحب بالإصبع */
+let tx=null;
+g("vImg").addEventListener("touchstart",e=>{tx=e.changedTouches[0].clientX},{passive:true});
+g("vImg").addEventListener("touchend",e=>{
+  if(tx===null) return;
+  const d=e.changedTouches[0].clientX-tx;
+  if(Math.abs(d)>45) step(d>0?1:-1);
+  tx=null;
+},{passive:true});
+
+const browser=g("browser");
+function paintBrowser(){
+  const bg=g("bGrid"); bg.innerHTML="";
+  PHOTOS.forEach((p,i)=>{
+    const b=document.createElement("button");
+    b.className="b-card";
+    b.innerHTML='<div class="ph"><img src="'+p.f+'" alt="'+p.t+'" loading="lazy">'+
+      (i===cover?'<span class="badge">الغلاف</span>':'')+'</div>'+
+      '<div class="cap">'+p.t+'</div><div class="tag">'+p.c+'</div>';
+    b.onclick=()=>openViewer(PHOTOS.map((_,k)=>k),i);
+    bg.appendChild(b);
+  });
+  g("brCount").textContent=AR(PHOTOS.length)+" صورة";
+}
+g("openBrowser").onclick=()=>{paintBrowser(); browser.showModal();};
+g("closeBrowser").onclick=()=>browser.close();
+g("jumpMaps").onclick=()=>g("mapsSection").scrollIntoView({behavior:"smooth"});
+
+paintGrid(); paintMaps();
+</script>
+
+</body>
+</html>
